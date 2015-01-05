@@ -3,3 +3,14 @@ Web App for Issue tracker like redmine or jira
 
 Build with Ruby on rails 
 
+How To Use
+- Install Ruby version 2.1.x 
+- Install Rails 4.2.0
+
+- Pull request $ git pull https://github.com/asharijuang/osissue.git
+- cd to project osissue and run bundle
+- $bundle
+- $rake db:migrate
+
+
+
