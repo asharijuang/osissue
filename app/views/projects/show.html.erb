@@ -1,13 +1,18 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Title:</strong>
-  <%= @project.title %>
+  <strong>Name:</strong>
+  <%= @project.name %>
 </p>
 
 <p>
   <strong>Description:</strong>
   <%= @project.description %>
+</p>
+
+<p>
+  <strong>Is public:</strong>
+  <%= @project.is_public %>
 </p>
 
 <%= link_to 'Edit', edit_project_path(@project) %> |

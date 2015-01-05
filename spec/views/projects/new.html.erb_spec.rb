@@ -3,8 +3,9 @@ require 'rails_helper'
 RSpec.describe "projects/new", :type => :view do
   before(:each) do
     assign(:project, Project.new(
-      :title => "MyString",
-      :description => "MyText"
+      :name => "MyString",
+      :description => "MyText",
+      :is_public => false
     ))
   end
 
@@ -13,9 +14,11 @@ RSpec.describe "projects/new", :type => :view do
 
     assert_select "form[action=?][method=?]", projects_path, "post" do
 
-      assert_select "input#project_title[name=?]", "project[title]"
+      assert_select "input#project_name[name=?]", "project[name]"
 
       assert_select "textarea#project_description[name=?]", "project[description]"
+
+      assert_select "input#project_is_public[name=?]", "project[is_public]"
     end
   end
 end

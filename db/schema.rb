@@ -11,21 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141217095016) do
+ActiveRecord::Schema.define(version: 20150104135213) do
 
-  create_table "projects", force: true do |t|
-    t.string   "title"
+  create_table "issues", force: true do |t|
+    t.integer  "project_id",     default: 0,  null: false
+    t.integer  "tracker_id",     default: 0,  null: false
+    t.string   "subject",        default: "", null: false
     t.text     "description"
+    t.integer  "status_id",      default: 0,  null: false
+    t.integer  "priority_id",    default: 0,  null: false
+    t.date     "due_date"
+    t.integer  "author_id",      default: 0,  null: false
+    t.integer  "assigned_to_id", default: 0,  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "tickets", force: true do |t|
-    t.string   "subject"
-    t.text     "description"
-    t.integer  "project_id"
-    t.integer  "priority_id"
-    t.integer  "issue_status_id"
+  create_table "projects", force: true do |t|
+    t.string   "name",        limit: 30, default: "",   null: false
+    t.text     "description",            default: "",   null: false
+    t.boolean  "is_public",              default: true, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
